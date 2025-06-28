@@ -13,11 +13,15 @@ const Hero = () => {
             </div>
             
             <h1 className="text-5xl lg:text-7xl font-serif font-bold text-navy mb-6 leading-tight">
-              Harboring <span className="text-gold">Elegance</span>, One Fiber at a Time
+              Charleston <span className="text-gold">Luxury</span> Textile Care Specialists
             </h1>
             
+            <h2 className="text-2xl lg:text-3xl font-serif text-navy/80 mb-6 italic">
+              "Harboring Elegance, One Fiber at a Time"
+            </h2>
+            
             <p className="text-xl text-navy/80 mb-8 leading-relaxed font-sans">
-              Preserving heirloom-quality rugs and upholstery under the Lowcountry's salt-air conditions. Discreet, white-glove textile care for Charleston's most discerning homeowners.
+              Premium rug cleaning, upholstery restoration, and carpet care for Kiawah Island, Seabrook Island, and Johns Island. Expert preservation of heirloom textiles under salt-air conditions.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4">
@@ -30,7 +34,7 @@ const Hero = () => {
             </div>
             
             <div className="mt-8 text-sm text-navy/60 font-sans">
-              <p>Serving Seabrook • Kiawah • Johns Island • Shell Point</p>
+              <p>Serving Seabrook Island • Kiawah Island • Johns Island • Shell Point • Charleston</p>
             </div>
           </div>
           
