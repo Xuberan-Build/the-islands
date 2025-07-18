@@ -1,23 +1,27 @@
 import React from 'react';
-import { Award, Star } from 'lucide-react';
+import { Award, Star, Shield, Users } from 'lucide-react';
 
 const AboutSection = () => {
   const benefits = [
     {
       title: "Coastal Expertise",
-      description: "Technical mastery of delicate fabrics and marine-influenced wear patterns unique to Lowcountry living."
+      description: "Technical mastery of delicate fabrics and marine-influenced wear patterns unique to Lowcountry living.",
+      icon: Award
     },
     {
-      title: "White-Glove Discretion",
-      description: "Seamless service aligned with high-end lifestyles and luxury property management requirements."
+      title: "White-Glove Discretion", 
+      description: "Seamless service aligned with high-end lifestyles and luxury property management requirements.",
+      icon: Star
     },
     {
       title: "Heirloom Preservation",
-      description: "We use only the finest, safest cleaning solutions designed specifically for luxury textiles and heritage pieces."
+      description: "We use only the finest, safest cleaning solutions designed specifically for luxury textiles and heritage pieces.",
+      icon: Shield
     },
     {
-      title: "Concierge Partnership",
-      description: "Trusted by Kiawah House Care, Above & Beyond, and Charleston's premier property management firms."
+      title: "Family-Owned Excellence",
+      description: "Unlike big franchises that send out whoever's available, we're family-owned—and that means something. When you trust us with your rugs, carpets, or upholstery, you're not getting a random technician—you're getting the owner.",
+      icon: Users
     }
   ];
 
@@ -34,17 +38,29 @@ const AboutSection = () => {
             </p>
             
             <div className="space-y-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Award className="text-gold" size={20} />
+              {benefits.map((benefit, index) => {
+                const IconComponent = benefit.icon;
+                return (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="w-12 h-12 bg-gold/20 rounded-full flex items-center justify-center flex-shrink-0">
+                      <IconComponent className="text-gold" size={20} />
+                    </div>
+                    <div>
+                      <h3 className="font-serif font-semibold text-navy mb-2">{benefit.title}</h3>
+                      <p className="text-navy/70 font-sans">{benefit.description}</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-serif font-semibold text-navy mb-2">{benefit.title}</h3>
-                    <p className="text-navy/70 font-sans">{benefit.description}</p>
-                  </div>
-                </div>
-              ))}
+                );
+              })}
+            </div>
+
+            <div className="mt-8 bg-navy/5 border-l-4 border-gold p-6 rounded-r-lg">
+              <p className="text-navy font-semibold font-sans mb-2">
+                "We take pride in treating your home like our own, delivering hands-on service with the highest standards of care, professionalism, and integrity."
+              </p>
+              <p className="text-navy/70 font-sans italic">
+                It's not just a job to us—it's a craft, and we stand behind every fiber we clean.
+              </p>
             </div>
           </div>
           
@@ -59,6 +75,7 @@ const AboutSection = () => {
                 <div className="relative z-10 text-center">
                   <Star className="text-gold mx-auto mb-4" size={48} />
                   <p className="text-navy font-serif font-semibold text-lg">Coastal Excellence</p>
+                  <p className="text-navy/70 font-sans text-sm mt-2">Family-owned & operated since day one</p>
                 </div>
               </div>
             </div>
