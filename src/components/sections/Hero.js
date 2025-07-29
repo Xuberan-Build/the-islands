@@ -66,7 +66,7 @@ const Hero = () => {
                 </div>
                 <div className="flex items-center space-x-1">
                   <Shield className="text-gold" size={16} />
-                  <span>100% Satisfaction Guarantee</span>
+                  <span> Satisfaction Guarantee</span>
                 </div>
               </div>
               
