@@ -15,7 +15,7 @@ const ServicesSection = () => {
   const services = [
     {
       title: "Luxury & Area Rug Cleaning",
-      subtitle: "Protect and Rejuvenate Your Rugs with THE ISLANDS Rug Spa Care",
+      subtitle: "Expert Care for Persian, Oriental & Fine Area Rugs",
       description: "Your Persian, Oriental, and specialty rugs are more than floor coverings—they're valuable investments and treasured art pieces. Give them the spa treatment they deserve.",
       icon: Home,
       benefits: [
@@ -81,7 +81,7 @@ const ServicesSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-4xl font-serif font-bold text-navy mb-4">Premier Rug, Carpet and Upholstery Cleaning Services</h2>
           <p className="text-xl text-navy/70 max-w-3xl mx-auto font-sans">
-            experts at refreshing the beauty, comfort, and cleanliness of your home spaces you love most.
+            Refresh the beauty, comfort and cleanliness of the space you love.
           </p>
         </div>
 
@@ -89,7 +89,7 @@ const ServicesSection = () => {
           {services.map((service, index) => {
             const IconComponent = service.icon;
             return (
-              <div key={index} className="bg-ivory p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border-t-4 border-gold group flex flex-col h-full">{/* Added flex flex-col h-full for alignment */}
+              <div key={index} className="bg-ivory p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border-t-4 border-gold group flex flex-col h-full">
                 
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-seafoam/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-navy transition-colors">
@@ -107,7 +107,7 @@ const ServicesSection = () => {
                   </p>
                 </div>
 
-                <div className="space-y-3 mb-6 flex-grow">{/* Added flex-grow to push button to bottom */}
+                <div className="space-y-3 mb-6 flex-grow">
                   {service.benefits.map((benefit, idx) => (
                     <div key={idx} className="flex items-start space-x-3">
                       <CheckCircle className="text-gold flex-shrink-0 mt-0.5" size={16} />
@@ -131,6 +131,12 @@ const ServicesSection = () => {
           <div className="bg-navy/5 border border-gold/20 rounded-xl p-8 max-w-6xl mx-auto">
             <h3 className="text-2xl font-serif font-bold text-navy mb-4">Why Choose THE ISLANDS Rug Spa For Your Cleaning Needs?</h3>
             <div className="mb-8">
+              <p className="text-navy/80 font-sans text-base mb-4">
+                When it comes to refreshing your home's rugs, carpets and upholstery, THE ISLANDS Rug Spa leans on its strength of expertise, integrity, and extensive cleaning practices.
+              </p>
+              <p className="text-navy font-semibold font-sans text-lg mb-2">
+                What sets us apart:
+              </p>
               <p className="text-navy font-semibold font-sans text-lg mb-2">
                 "We take pride in treating your home and furnishings like our own, delivering hands-on service with the highest standards of care, professionalism, and integrity from start to finish."
               </p>
