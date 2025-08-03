@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { CheckCircle, Home, Crown, Shield, Layers, Users, Award, Leaf, Zap } from 'lucide-react';
+import { CheckCircle } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
 
 const ServicesSection = () => {
@@ -12,12 +12,13 @@ const ServicesSection = () => {
   };
   
   const closePopup = () => setIsPopupOpen(false);
+  
   const services = [
     {
       title: "Luxury & Area Rug Cleaning",
       subtitle: "Expert Care for Persian, Oriental & Fine Area Rugs",
       description: "Your Persian, Oriental, and specialty rugs are more than floor coverings—they're valuable investments and treasured art pieces. Give them the spa treatment they deserve.",
-      icon: Home,
+      imageSrc: "/images/fine rug cleaning.svg",
       benefits: [
         "Remove allergens, bacteria & dust mites",
         "Eliminate odors and mustiness",
@@ -32,7 +33,7 @@ const ServicesSection = () => {
       title: "Carpet Cleaning & Care",
       subtitle: "Essential Care for Your Home's Investments",
       description: "Regular professional cleaning isn't just about appearance—it's essential for extending carpet life, protecting indoor air quality, and preserving your significant home's investment for style and comfort.",
-      icon: Shield,
+      imageSrc: "/images/carpet cleaning.svg",
       benefits: [
         "Advanced eco-friendly cleaning methods",
         "Safe for family and pets always",
@@ -47,7 +48,7 @@ const ServicesSection = () => {
       title: "Upholstery Cleaning", 
       subtitle: "Restore the Beauty. Renew the Comfort.",
       description: "Your upholstered furniture is where life happens—cozy evenings, memorable gatherings. Over time, it collects dust, body oils, allergens, and spills that dull its beauty and affect air quality.",
-      icon: Crown,
+      imageSrc: "/images/Upholstery cleaning.svg",
       benefits: [
         "Skilled Stain Removal with precision and care",
         "Odor Removal Expertise for fresh, clean furniture", 
@@ -62,7 +63,7 @@ const ServicesSection = () => {
       title: "Floor and Tile Cleaning",
       subtitle: "Revitalize Your Floor and Tiles Beauty and Shine",
       description: "We take much pride in offering an exceptional floor and tile cleaning service that goes beyond the surface to restore your flooring's original beauty. Our honed process ensures your floors and tiles are thoroughly cleaned, leaving them refreshed.",
-      icon: Layers,
+      imageSrc: "/images/tile cleaning.svg",
       benefits: [
         "Superior service that makes your home look and feel as good as new",
         "Restores original beauty and luster to dingy floors",
@@ -87,13 +88,16 @@ const ServicesSection = () => {
 
         <div className="grid lg:grid-cols-2 xl:grid-cols-4 gap-8">
           {services.map((service, index) => {
-            const IconComponent = service.icon;
             return (
               <div key={index} className="bg-ivory p-8 rounded-2xl hover:shadow-xl transition-all duration-300 border-t-4 border-gold group flex flex-col h-full">
                 
                 <div className="text-center mb-6">
                   <div className="w-16 h-16 bg-seafoam/20 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-navy transition-colors">
-                    <IconComponent className="text-navy group-hover:text-ivory transition-colors" size={32} />
+                    <img 
+                      src={service.imageSrc} 
+                      alt={service.title}
+                      className="w-14 h-14 transition-all group-hover:invert"
+                    />
                   </div>
                 </div>
 
@@ -147,7 +151,11 @@ const ServicesSection = () => {
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 text-left">
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-4">
-                  <Users className="text-gold" size={32} />
+                  <img 
+                    src="/images/customer icon.svg" 
+                    alt="Customer-Centric Approach"
+                    className="w-14 h-14"
+                  />
                 </div>
                 <h4 className="text-gold text-xl font-bold mb-3">Customer-Centric Approach</h4>
                 <p className="text-navy/70 font-sans text-sm">
@@ -156,7 +164,11 @@ const ServicesSection = () => {
               </div>
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-4">
-                  <Award className="text-gold" size={32} />
+                  <img 
+                    src="/images/comprehensive clean.svg" 
+                    alt="Comprehensive Cleaning Solutions"
+                    className="w-14 h-14"
+                  />
                 </div>
                 <h4 className="text-gold text-xl font-bold mb-3">Comprehensive Cleaning Solutions</h4>
                 <p className="text-navy/70 font-sans text-sm">
@@ -165,7 +177,11 @@ const ServicesSection = () => {
               </div>
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-4">
-                  <Leaf className="text-gold" size={32} />
+                  <img 
+                    src="/images/eco icon.svg" 
+                    alt="Eco-Friendly Cleaning"
+                    className="w-14 h-14"
+                  />
                 </div>
                 <h4 className="text-gold text-xl font-bold mb-3">Eco-Friendly Cleaning</h4>
                 <p className="text-navy/70 font-sans text-sm">
@@ -174,7 +190,11 @@ const ServicesSection = () => {
               </div>
               <div className="flex flex-col items-center text-center">
                 <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mb-4">
-                  <Zap className="text-gold" size={32} />
+                  <img 
+                    src="/images/stain remove icon.svg" 
+                    alt="Superior Stain Removal"
+                    className="w-14 h-14"
+                  />
                 </div>
                 <h4 className="text-gold text-xl font-bold mb-3">Superior Stain Removal</h4>
                 <p className="text-navy/70 font-sans text-sm">
