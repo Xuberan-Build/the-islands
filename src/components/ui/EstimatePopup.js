@@ -48,11 +48,11 @@ const EstimatePopup = ({ isOpen, onClose }) => {
           <div className="flex items-center space-x-6 mt-4 text-sm">
             <div className="flex items-center space-x-1">
               <Shield className="text-gold" size={16} />
-              <span>100% Satisfaction Guarantee</span>
+              <span>Satisfaction Guarantee</span>
             </div>
             <div className="flex items-center space-x-1">
               <Star className="text-gold" size={16} />
-              <span>Same-day service available</span>
+              <span>Locally Owned and Operated</span>
             </div>
           </div>
         </div>

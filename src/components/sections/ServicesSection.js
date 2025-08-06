@@ -15,7 +15,7 @@ const ServicesSection = () => {
   
   const services = [
     {
-      title: "Luxury & Area Rug Cleaning",
+      title: "Fine Area Rug Cleaning",
       subtitle: "Expert Care for Persian, Oriental & Fine Area Rugs",
       description: "Your Persian, Oriental, and specialty rugs are more than floor coverings—they're valuable investments and treasured art pieces. Give them the spa treatment they deserve.",
       imageSrc: "/images/fine rug cleaning.svg",
@@ -26,11 +26,11 @@ const ServicesSection = () => {
         "Restore softness and vibrant colors",
         "Extend rug life and preserve value"
       ],
-      cta: "Schedule Rug Cleaning Consultation",
+      cta: "Book a Cleaning",
       highlight: "Fine area rug cleaning process meticulously is uniquely designed to safely clean and protect delicate fibers"
     },
     {
-      title: "Carpet Cleaning & Care",
+      title: "Carpet Cleaning and Care",
       subtitle: "Essential Care for Your Home's Investments",
       description: "Regular professional cleaning isn't just about appearance—it's essential for extending carpet life, protecting indoor air quality, and preserving your significant home's investment for style and comfort.",
       imageSrc: "/images/carpet cleaning.svg",
@@ -41,7 +41,7 @@ const ServicesSection = () => {
         "Fast drying, exceptional results",
         "Protects your carpets investment"
       ],
-      cta: "Schedule a Carpet Cleaning",
+      cta: "Book a Cleaning",
       highlight: "We'll have your carpets looking and feeling fresh again"
     },
     {
@@ -56,12 +56,12 @@ const ServicesSection = () => {
         "Affordable Services without sacrificing quality",
         "Love Your Furniture Again - results that look and feel like new"
       ],
-      cta: "Get Upholstery Cleaning Quote",
+      cta: "Book a Cleaning",
       highlight: "We clean and treat every piece as if it were our own — delivering results that look and feel like new"
     },
     {
       title: "Floor and Tile Cleaning",
-      subtitle: "Revitalize Your Floor and Tiles Beauty and Shine",
+      subtitle: "Revitalize Your Floor and Tile's Beauty and Shine",
       description: "We take much pride in offering an exceptional floor and tile cleaning service that goes beyond the surface to restore your flooring's original beauty. Our honed process ensures your floors and tiles are thoroughly cleaned, leaving them refreshed.",
       imageSrc: "/images/tile cleaning.svg",
       benefits: [
@@ -71,8 +71,8 @@ const ServicesSection = () => {
         "Fresh, clean, and vibrant home environment",
         "THE ISLANDS Rug Spa Sets the Coastal Cleaning Standard"
       ],
-      cta: "Schedule Floor & Tile Service",
-      highlight: "Treat your dirty and dingy floors and tiles to THE ISLANDS Rug Spa facelift!"
+      cta: "Book a Cleaning",
+      highlight: "Treat your dirty and dingy floors and tiles to THE ISLANDS RUG SPA facelift!"
     }
   ];
 
@@ -133,16 +133,16 @@ const ServicesSection = () => {
 
         <div className="text-center mt-12">
           <div className="bg-navy/5 border border-gold/20 rounded-xl p-8 max-w-6xl mx-auto">
-            <h3 className="text-2xl font-serif font-bold text-navy mb-4">Why Choose THE ISLANDS Rug Spa For Your Cleaning Needs?</h3>
+            <h3 className="text-2xl font-serif font-bold text-navy mb-4">Why Choose THE ISLANDS RUG SPA?</h3>
             <div className="mb-8">
               <p className="text-navy/80 font-sans text-base mb-4">
-                When it comes to refreshing your home's rugs, carpets and upholstery, THE ISLANDS Rug Spa leans on its strength of expertise, integrity, and extensive cleaning practices.
+                When it comes to refreshing your home's rugs, carpets and upholstery, THE ISLANDS RUG SPA leans on its strength of expertise, integrity, and extensive cleaning practices.
               </p>
               <p className="text-navy font-semibold font-sans text-lg mb-2">
                 What sets us apart:
               </p>
               <p className="text-navy font-semibold font-sans text-lg mb-2">
-                "We take pride in treating your home and furnishings like our own, delivering hands-on service with the highest standards of care, professionalism, and integrity from start to finish."
+                "We take pride in treating your home and furnishings like it's our own, delivering hands-on service with the highest standards of care, professionalism, and integrity from start to finish."
               </p>
               <p className="text-navy/70 font-sans italic">
                 It's more than a job —we're cleaning services craftspeople who stand behind every fiber we clean.
@@ -172,7 +172,7 @@ const ServicesSection = () => {
                 </div>
                 <h4 className="text-gold text-xl font-bold mb-3">Comprehensive Cleaning Solutions</h4>
                 <p className="text-navy/70 font-sans text-sm">
-                  Through decades of experience, we have perfected a wide range of professional cleaning services. From rugs, carpets and upholstery to drapery and commercial spaces, we handle it all. Our meticulous care and eco-friendly approach ensure every job is completed to perfection.
+                  Through decades of experience, we have perfected a wide range of professional cleaning services. From rugs, carpets, upholstery, floors and tiles we handle it all. Our meticulous care and eco-friendly approach ensure every job is completed to perfection.
                 </p>
               </div>
               <div className="flex flex-col items-center text-center">

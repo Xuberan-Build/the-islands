@@ -18,17 +18,13 @@ const Hero = () => {
         <div className="container mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <Crown className="text-gold" size={20} />
-                <span className="text-navy font-semibold tracking-wide font-sans text-sm">IICRC-CERTIFIED SPECIALISTS</span>
-              </div>
               
-              <h1 className="text-4xl lg:text-6xl font-serif font-bold text-navy mb-4 leading-tight">
-                The Islands <span className="text-gold">Rug & Upholstery</span> Spa
+              <h1 className="text-4xl lg:text-5xl font-serif font-bold text-navy mb-4 leading-tight">
+                THE ISLANDS <span className="text-navy">RUG SPA</span>
               </h1>
               
               <h2 className="text-xl lg:text-2xl font-serif text-navy/80 mb-5 italic">
-                "Your home's furnishings deserve a spa treatment too"
+                "Give your home the spa treatment"
               </h2>
               
               <div className="text-lg text-navy/80 mb-5 leading-relaxed font-sans">
@@ -61,7 +57,7 @@ const Hero = () => {
               <div className="flex items-center space-x-4 text-sm text-navy/70 font-sans mb-3">
                 <div className="flex items-center space-x-1">
                   <Star className="text-gold" size={14} />
-                  <span>Same-day service</span>
+                  <span>Local, Owner Operated</span>
                 </div>
                 <div className="flex items-center space-x-1">
                   <Shield className="text-gold" size={14} />
@@ -69,9 +65,9 @@ const Hero = () => {
                 </div>
               </div>
               
-              <div className="text-sm text-navy/60 font-sans">
+             <div className="sr-only text-sm text-navy/60 font-sans">
                 <p>Serving Seabrook Island • Kiawah Island • Johns Island • Charleston</p>
-              </div>
+            </div>
             </div>
             
             <div className="lg:text-right">
@@ -84,7 +80,7 @@ const Hero = () => {
                   
                   <div className="relative z-10 text-center">
                     <Anchor className="text-navy mx-auto mb-3" size={40} />
-                    <p className="text-navy font-serif font-semibold text-base">Premier Textile Care</p>
+                    <p className="text-navy font-serif font-semibold text-base">Premier Care</p>
                     <p className="text-navy/70 font-sans text-sm mt-2">Trusted by 500+ Lowcountry families</p>
                   </div>
                 </div>

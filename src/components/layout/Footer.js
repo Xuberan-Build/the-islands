@@ -17,15 +17,15 @@ const Footer = () => {
     window.location.href = 'mailto:info@theislandsrugspa.com';
   };
   const serviceAreas = [
-    "Greater Charleston", "Lowcountry", "Seabrook Island", "Kiawah Island", 
-    "Johns Island", "Shell Point", "Charleston", "Mount Pleasant"
+    "Charleston", "Mount Pleasant", "Lowcountry", "Seabrook Island", "Kiawah Island", 
+    "Johns Island", "James Island"
   ];
 
   const services = [
-    "Luxury & Area Rug Cleaning", 
-    "Carpet Cleaning & Care",
+    "Fine Area Rug Cleaning", 
+    "Carpet Cleaning and Care",
     "Upholstery Cleaning", 
-    "Floor & Tile Cleaning"
+    "Floor and Tile Cleaning"
   ];
 
   const quickLinks = [
@@ -47,7 +47,7 @@ const Footer = () => {
               </div>
               <div>
                 <h3 className="font-serif font-bold text-lg">THE ISLANDS</h3>
-                <p className="text-sm text-ivory/70 font-sans">Rug Spa</p>
+                <p className="text-sm text-ivory/70 font-sans">RUG SPA</p>
               </div>
             </Link>
             
@@ -227,7 +227,7 @@ const Footer = () => {
 
         <div className="border-t border-ivory/20 pt-8 text-center">
           <p className="text-ivory/70 font-sans">
-            © 2025, THE ISLANDS Rug Spa, All rights reserved | <Link to="/privacy" className="underline">Privacy Policy</Link> | <Link to="/terms" className="underline">Terms of Service</Link>
+            © 2025, THE ISLANDS RUG SPA, All rights reserved | <Link to="/privacy" className="underline">Privacy Policy</Link> | <Link to="/terms" className="underline">Terms of Service</Link>
           </p>
         </div>
       </div>
