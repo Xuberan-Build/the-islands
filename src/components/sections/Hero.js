@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Crown, Anchor, Shield, Star } from 'lucide-react';
+import { Anchor, Shield, Star } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
 
 const Hero = () => {
