@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Clock, Waves, Mail, MapPin, Shield, Star } from 'lucide-react';
+import { Phone, Clock, Mail, MapPin, Shield, Star } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
 
 const Footer = () => {
