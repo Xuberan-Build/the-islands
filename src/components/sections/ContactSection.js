@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { MapPin, Clock, Phone, Mail, Shield, Star, Users, Award } from 'lucide-react';
+import { MapPin, Clock, Phone, Mail, Shield, Star, Users, Award, CheckCircle, Settings } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
 
 const CTASection = () => {
@@ -23,7 +23,7 @@ const CTASection = () => {
               </h2>
               <p className="text-xl text-navy/70 mb-8 font-sans">
                 Your rugs, carpets and upholstery deserve expert, spa treatment-like care. 
-                Choosing THE ISLANDS Rug Spa means you're investing in peace of mind, comfort, and better-quality results from a professional cleaning service focused on quality, reliability, and effective eco-friendly practices.
+                Choosing THE ISLANDS RUG SPA means you're investing in peace of mind, comfort, and better-quality results from a professional cleaning service focused on quality, reliability, and effective eco-friendly practices.
               </p>
               
               <div className="space-y-4 mb-8">
@@ -67,7 +67,7 @@ const CTASection = () => {
                 </button>
               </div>
               
-              <div className="flex flex-wrap justify-center sm:justify-start items-center gap-4 text-sm text-navy/60 font-sans">
+              <div className="grid grid-cols-3 gap-4 text-sm text-navy/60 font-sans">
                 <div className="flex items-center space-x-1">
                   <Shield className="text-gold" size={14} />
                   <span>Satisfaction Guaranteed</span>
@@ -84,13 +84,21 @@ const CTASection = () => {
                   <Star className="text-gold" size={14} />
                   <span>Eco-friendly solutions</span>
                 </div>
+                <div className="flex items-center space-x-1">
+                  <CheckCircle className="text-gold" size={14} />
+                  <span>Licensed and insured</span>
+                </div>
+                <div className="flex items-center space-x-1">
+                  <Settings className="text-gold" size={14} />
+                  <span>Advanced equipment</span>
+                </div>
               </div>
             </div>
 
             <div>
               <div className="bg-white p-8 rounded-2xl shadow-xl border border-gold/20">
                 <h3 className="text-2xl font-serif font-semibold text-navy mb-2">Get Your FREE Estimate</h3>
-                <p className="text-navy/70 font-sans text-sm mb-6">Tell us about your needs and we'll provide a detailed quote</p>
+                <p className="text-navy/70 font-sans text-sm mb-6">Tell us about your cleaning needs and we'll provide a detailed quote</p>
                 
                 <div className="space-y-4">
                   <div>

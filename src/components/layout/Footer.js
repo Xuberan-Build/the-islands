@@ -41,18 +41,18 @@ const Footer = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div>
-            <Link to="/" className="flex items-center space-x-3 mb-6">
-              <div className="w-10 h-10 bg-gold rounded-full flex items-center justify-center">
-                <Waves className="text-navy" size={20} />
-              </div>
-              <div>
-                <h3 className="font-serif font-bold text-lg">THE ISLANDS</h3>
-                <p className="text-sm text-ivory/70 font-sans">RUG SPA</p>
+            <Link to="/" className="flex items-center mb-6">
+              <div className="bg-white/75 backdrop-blur-sm rounded-lg p-8">
+                <img 
+                  src="/images/ISLANDS-logo-transaprency.png" 
+                  alt="THE ISLANDS Rug Spa Logo - Professional carpet, rug, and upholstery cleaning services in Charleston and Lowcountry South Carolina"
+                  className="h-24 object-contain"
+                />
               </div>
             </Link>
             
             <p className="text-ivory/70 mb-6 font-sans">
-              Owner-operated, IICRC-certified specialists providing expert care for the Charleston & Lowcountry's finest homes.
+              Owner-operated, IICRC-certified specialists providing expert care for the Charleston and Lowcountry's finest homes.
             </p>
             
             <p className="text-ivory/80 mb-4 font-sans">
@@ -70,7 +70,7 @@ const Footer = () => {
                 <Shield className="text-navy" size={20} />
               </div>
 
-              {/* Licensed & Insured Badge */}
+              {/* Licensed and Insured Badge */}
               <div className="w-12 h-12 bg-ivory rounded-full flex items-center justify-center">
                 <Star className="text-navy" size={20} />
               </div>
@@ -181,7 +181,7 @@ const Footer = () => {
 
           {/* Service Areas */}
           <div>
-            <h4 className="font-serif font-semibold text-lg mb-4">Service Areas — Greater Charleston & Lowcountry</h4>
+            <h4 className="font-serif font-semibold text-lg mb-4">Service Areas — Greater Charleston and Lowcountry</h4>
             <ul className="space-y-1">
               {serviceAreas.slice(2).map((area, index) => (
                 <li key={index} className="text-ivory/70 font-sans text-sm">{area}</li>
@@ -204,7 +204,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Satisfaction Guarantee & Service Disclaimer */}
+        {/* Satisfaction Guarantee and Service Disclaimer */}
         <div className="bg-ivory/5 rounded-lg p-6 mb-8">
           <div className="grid md:grid-cols-2 gap-6 text-sm">
             <div>
@@ -227,7 +227,7 @@ const Footer = () => {
 
         <div className="border-t border-ivory/20 pt-8 text-center">
           <p className="text-ivory/70 font-sans">
-            © 2025, THE ISLANDS RUG SPA, All rights reserved | <Link to="/privacy" className="underline">Privacy Policy</Link> | <Link to="/terms" className="underline">Terms of Service</Link>
+            © 2025, THE ISLANDS RUG SPA, All rights reserved | <Link to="/privacy" className="underline">Privacy Policy</Link> | <Link to="/terms" className="underline">Terms of Use</Link>
           </p>
         </div>
       </div>

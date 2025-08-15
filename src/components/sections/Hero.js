@@ -24,7 +24,7 @@ const Hero = () => {
               </h1>
               
               <h2 className="text-xl lg:text-2xl font-serif text-navy/80 mb-5 italic">
-                "Give your home the spa treatment"
+                Give your home the spa treatment
               </h2>
               
               <div className="text-lg text-navy/80 mb-5 leading-relaxed font-sans">
@@ -32,7 +32,7 @@ const Hero = () => {
                   Your rugs, carpets and upholstery are significant investments. But, over time they harbor hidden contaminants like dirt, dust mites, mold, and bacteria.
                 </p>
                 <p className="mb-3">
-                  <strong>That's where THE ISLANDS Rug Spa comes in.</strong> Let us refresh the comfort, coziness and beauty of your home's furnishings. We are Owner-operated, experienced IICRC-certified specialists - professional, service minded and committed to excellence.
+                  <strong>That's where THE ISLANDS RUG SPA comes in.</strong> Let us refresh the comfort, coziness and beauty of your home's furnishings. We are owner-operated, experienced IICRC-certified specialists - professional, service minded and committed to excellence.
                 </p>
                 <p className="text-base font-semibold text-navy">
                   <strong>Premier Rug, Carpet and Upholstery Cleaning Services – experts at refreshing the beauty, comfort, and cleanliness of your home spaces you love most.</strong>
@@ -61,7 +61,7 @@ const Hero = () => {
                 </div>
                 <div className="flex items-center space-x-1">
                   <Shield className="text-gold" size={14} />
-                  <span>Satisfaction Guarantee</span>
+                  <span>Satisfaction Guaranteed</span>
                 </div>
               </div>
               
@@ -72,16 +72,22 @@ const Hero = () => {
             
             <div className="lg:text-right">
               <div className="relative">
-                <div className="w-full max-w-md mx-auto h-80 bg-gradient-to-br from-seafoam/30 via-ivory to-sandstone/30 rounded-3xl shadow-2xl flex items-center justify-center relative overflow-hidden border border-gold/20">
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/10 to-transparent"></div>
-                  <div className="absolute top-6 left-6 w-6 h-6 bg-gold rounded-full opacity-80"></div>
-                  <div className="absolute bottom-8 right-8 w-4 h-4 bg-navy rounded-full opacity-60"></div>
-                  <div className="absolute top-1/3 right-6 w-3 h-3 bg-seafoam rounded-full opacity-70"></div>
+                <div className="w-full max-w-md mx-auto h-80 rounded-3xl shadow-2xl overflow-hidden border border-gold/20 relative">
+                  <img 
+                    src="/images/living-room.png" 
+                    alt="Beautiful neutral sectional sofa with decorative pillows and ottoman in elegant Charleston home living room showcasing professional upholstery and carpet cleaning services by The Islands Rug Spa"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-navy/20 to-transparent"></div>
                   
-                  <div className="relative z-10 text-center">
-                    <Anchor className="text-navy mx-auto mb-3" size={40} />
-                    <p className="text-navy font-serif font-semibold text-base">Premier Care</p>
-                    <p className="text-navy/70 font-sans text-sm mt-2">Trusted by 500+ Lowcountry families</p>
+                  <div className="absolute top-6 left-6 right-6">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg p-4">
+                      <div className="text-center">
+                        <Anchor className="text-grey mx-auto mb-2 drop-shadow-lg" size={32} />
+                        <p className="text-grey font-serif font-semibold text-base drop-shadow-lg">Premier Care</p>
+                        <p className="text-grey/90 font-sans text-sm mt-1 drop-shadow-md">Trusted by 500+ Lowcountry families</p>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>

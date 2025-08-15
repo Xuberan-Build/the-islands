@@ -62,18 +62,14 @@ const Header = () => {
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
             
-            {/* Logo Section - Updated with proper capitalization */}
-            <Link to="/" className="flex items-center space-x-4">
+            {/* Logo Section - Updated to remove redundant text */}
+            <Link to="/" className="flex items-center">
               <div className="relative">
                 <img 
-                  src="/islands-icon.png" 
+                  src="/images/ISLANDS-logo-transaprency.png" 
                   alt="THE ISLANDS Rug Spa Logo" 
-                  className="w-20 h-20 object-contain"
+                  className="h-16 object-contain"
                 />
-              </div>
-              <div>
-                <h1 className="text-3xl font-serif font-bold text-navy tracking-tight">THE ISLANDS</h1>
-                <p className="text-sm text-navy/70 font-sans tracking-wider uppercase">Rug Spa</p>
               </div>
             </Link>
 

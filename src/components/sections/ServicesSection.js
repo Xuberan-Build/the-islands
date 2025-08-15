@@ -16,18 +16,18 @@ const ServicesSection = () => {
   const services = [
     {
       title: "Fine Area Rug Cleaning",
-      subtitle: "Expert Care for Persian, Oriental & Fine Area Rugs",
-      description: "Your Persian, Oriental, and specialty rugs are more than floor coverings—they're valuable investments and treasured art pieces. Give them the spa treatment they deserve.",
+      subtitle: "Expert Care for Persian, Oriental and Area Rugs",
+      description: "Your Persian, Oriental, and specialty rugs are more than floor coverings—they're treasured, valuable home investments and treasured pieces. Give them the spa treatment they deserve.",
       imageSrc: "/images/fine rug cleaning.svg",
       benefits: [
-        "Remove allergens, bacteria & dust mites",
+        "Remove allergens, bacteria and dust mites",
         "Eliminate odors and mustiness",
         "Lift tough stains without damaging fibers",
         "Restore softness and vibrant colors",
         "Extend rug life and preserve value"
       ],
       cta: "Book a Cleaning",
-      highlight: "Fine area rug cleaning process meticulously is uniquely designed to safely clean and protect delicate fibers"
+      highlight: "Our fine area rug cleaning treatment restores beauty and freshness using advanced equipment, eco-friendly products, and detailed care."
     },
     {
       title: "Carpet Cleaning and Care",
@@ -69,10 +69,14 @@ const ServicesSection = () => {
         "Restores original beauty and luster to dingy floors",
         "Expert cleaning for coastal South Carolina homes",
         "Fresh, clean, and vibrant home environment",
-        "THE ISLANDS Rug Spa Sets the Coastal Cleaning Standard"
       ],
       cta: "Book a Cleaning",
-      highlight: "Treat your dirty and dingy floors and tiles to THE ISLANDS RUG SPA facelift!"
+      highlight: (
+        <>
+          Treat your dirty and dingy floors and<br />
+          tiles to spa treatment!
+        </>
+      )
     }
   ];
 
@@ -106,9 +110,9 @@ const ServicesSection = () => {
                 <p className="text-navy/70 mb-6 text-center font-sans text-sm">{service.description}</p>
                 
                 <div className="bg-seafoam/10 p-4 rounded-lg mb-6">
-                  <p className="text-navy/80 font-sans text-sm italic text-center">
-                    ✨ {service.highlight}
-                  </p>
+                  <div className="text-navy/80 font-sans text-sm italic text-center">
+                    {service.highlight}
+                  </div>
                 </div>
 
                 <div className="space-y-3 mb-6 flex-grow">
@@ -159,7 +163,7 @@ const ServicesSection = () => {
                 </div>
                 <h4 className="text-gold text-xl font-bold mb-3">Customer-Centric Approach</h4>
                 <p className="text-navy/70 font-sans text-sm">
-                  Our commitment to client satisfaction is the very core of all we do. We understand the challenges of maintaining clean carpets, rugs and upholstery, especially in Charleston and Lowcountry.
+                  Our commitment to client satisfaction is at the very core of all we do. We understand the challenges of maintaining clean carpets, rugs and upholstery, especially in Charleston and Lowcountry.
                 </p>
               </div>
               <div className="flex flex-col items-center text-center">
