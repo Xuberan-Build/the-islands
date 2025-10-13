@@ -52,6 +52,21 @@
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
+    
+    <!-- Hidden form for Netlify form detection -->
+    <form name="estimate-request" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <select name="service">
+        <option value="luxury-rug-cleaning">Luxury & Area Rug Cleaning</option>
+        <option value="upholstery-cleaning">Upholstery Cleaning</option>
+        <option value="carpet-cleaning">Carpet Cleaning & Care</option>
+        <option value="multiple-services">Multiple Services</option>
+      </select>
+      <textarea name="message"></textarea>
+    </form>
+    
     <div id="root"></div>
   </body>
 </html>

@@ -4,12 +4,71 @@ import EstimatePopup from '../ui/EstimatePopup';
 
 const CTASection = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    service: '',
+    message: ''
+  });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
 
   const handleCallClick = () => {
     window.location.href = 'tel:843-437-8921';
+  };
+
+  const handleInputChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+  };
+
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ 
+        "form-name": "estimate-request",
+        ...formData 
+      })
+    })
+    .then(() => {
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+    })
+    .catch(error => {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+      setTimeout(() => {
+        setSubmitStatus(null);
+      }, 5000);
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+    });
   };
 
   return (
@@ -100,52 +159,99 @@ const CTASection = () => {
                 <h3 className="text-2xl font-serif font-semibold text-navy mb-2">Get Your FREE Estimate</h3>
                 <p className="text-navy/70 font-sans text-sm mb-6">Tell us about your cleaning needs and we'll provide a detailed quote</p>
                 
-                <div className="space-y-4">
+                {submitStatus === 'success' && (
+                  <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-lg font-sans">
+                    Thank you! We'll contact you within 24 hours with your FREE estimate.
+                  </div>
+                )}
+                
+                {submitStatus === 'error' && (
+                  <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-lg font-sans">
+                    Oops! Something went wrong. Please try again or call us at 843-437-8921.
+                  </div>
+                )}
+
+                <form 
+                  name="estimate-request"
+                  method="POST"
+                  data-netlify="true"
+                  data-netlify-honeypot="bot-field"
+                  onSubmit={handleSubmit}
+                  className="space-y-4"
+                >
+                  {/* Hidden fields for Netlify */}
+                  <input type="hidden" name="form-name" value="estimate-request" />
+                  <div hidden>
+                    <input name="bot-field" />
+                  </div>
+
                   <div>
                     <input 
                       type="text" 
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
                       placeholder="Your Name"
                       className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
                     />
                   </div>
                   <div>
                     <input 
-                      type="email" 
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
                       placeholder="Email Address"
                       className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
                     />
                   </div>
                   <div>
                     <input 
-                      type="tel" 
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
                       placeholder="Phone Number"
                       className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
                     />
                   </div>
                   <div>
-                    <select className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans">
-                      <option>Select Service Needed</option>
-                      <option>Luxury & Area Rug Cleaning</option>
-                      <option>Upholstery Cleaning</option>
-                      <option>Carpet Cleaning & Care</option>
-                      <option>Floor and Tile Cleaning</option>
-                      <option>Multiple Services</option>
+                    <select 
+                      name="service"
+                      value={formData.service}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
+                    >
+                      <option value="">Select Service Needed</option>
+                      <option value="luxury-rug-cleaning">Luxury & Area Rug Cleaning</option>
+                      <option value="upholstery-cleaning">Upholstery Cleaning</option>
+                      <option value="carpet-cleaning">Carpet Cleaning & Care</option>
+                      <option value="floor-tile-cleaning">Floor and Tile Cleaning</option>
+                      <option value="multiple-services">Multiple Services</option>
                     </select>
                   </div>
                   <div>
                     <textarea 
+                      name="message"
+                      value={formData.message}
+                      onChange={handleInputChange}
                       placeholder="Describe your carpets, rugs, or upholstery that need attention..."
                       rows="4"
                       className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none resize-none font-sans"
                     />
                   </div>
                   <button 
-                    onClick={openPopup}
-                    className="w-full bg-gold text-navy py-4 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans"
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full bg-gold text-navy py-4 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    Get My FREE Estimate
+                    {isSubmitting ? 'Sending...' : 'Get My FREE Estimate'}
                   </button>
-                </div>
+                </form>
               </div>
             </div>
           </div>

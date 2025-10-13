@@ -9,6 +9,8 @@ const EstimatePopup = ({ isOpen, onClose }) => {
     service: '',
     message: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const handleInputChange = (e) => {
     setFormData({
@@ -17,13 +19,45 @@ const EstimatePopup = ({ isOpen, onClose }) => {
     });
   };
 
+  const encode = (data) => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
+  };
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // You can add email sending logic or API call here
-    alert('Thank you! We\'ll contact you within 24 hours with your FREE estimate.');
-    onClose();
+    setIsSubmitting(true);
+    
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({ 
+        "form-name": "estimate-request",
+        ...formData 
+      })
+    })
+    .then(() => {
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        service: '',
+        message: ''
+      });
+      setTimeout(() => {
+        onClose();
+        setSubmitStatus(null);
+      }, 2000);
+    })
+    .catch(error => {
+      console.error('Form submission error:', error);
+      setSubmitStatus('error');
+    })
+    .finally(() => {
+      setIsSubmitting(false);
+    });
   };
 
   if (!isOpen) return null;
@@ -59,7 +93,32 @@ const EstimatePopup = ({ isOpen, onClose }) => {
 
         {/* Form Content */}
         <div className="p-6">
-          <form onSubmit={handleSubmit} className="space-y-4">
+          {submitStatus === 'success' && (
+            <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-lg">
+              Thank you! We'll contact you within 24 hours with your FREE estimate.
+            </div>
+          )}
+          
+          {submitStatus === 'error' && (
+            <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
+              Oops! Something went wrong. Please try again or call us directly at 843-437-8921.
+            </div>
+          )}
+
+          <form 
+            name="estimate-request"
+            method="POST"
+            data-netlify="true"
+            data-netlify-honeypot="bot-field"
+            onSubmit={handleSubmit} 
+            className="space-y-4"
+          >
+            {/* Hidden fields for Netlify */}
+            <input type="hidden" name="form-name" value="estimate-request" />
+            <div hidden>
+              <input name="bot-field" />
+            </div>
+
             <div className="grid md:grid-cols-2 gap-4">
               <div>
                 <label className="block text-navy font-semibold mb-2 font-sans">Your Name *</label>
@@ -132,14 +191,16 @@ const EstimatePopup = ({ isOpen, onClose }) => {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <button 
                 type="submit"
-                className="flex-1 bg-gold text-navy py-4 px-6 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans text-lg"
+                disabled={isSubmitting}
+                className="flex-1 bg-gold text-navy py-4 px-6 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans text-lg disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Get My FREE Estimate
+                {isSubmitting ? 'Sending...' : 'Get My FREE Estimate'}
               </button>
               <button 
                 type="button"
                 onClick={onClose}
-                className="flex-1 border-2 border-navy/20 text-navy py-4 px-6 rounded-lg font-semibold hover:bg-navy/5 transition-colors font-sans"
+                disabled={isSubmitting}
+                className="flex-1 border-2 border-navy/20 text-navy py-4 px-6 rounded-lg font-semibold hover:bg-navy/5 transition-colors font-sans disabled:opacity-50"
               >
                 Close
               </button>
@@ -172,4 +233,4 @@ const EstimatePopup = ({ isOpen, onClose }) => {
   );
 };
 
-export default EstimatePopup
+export default EstimatePopup;
