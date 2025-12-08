@@ -1,18 +1,9 @@
 import React, { useState } from 'react';
-import { MapPin, Clock, Phone, Mail, Shield, Star, Users, Award, CheckCircle, Settings } from 'lucide-react';
+import { MapPin, Clock, Phone, Mail, Shield, Star, Users, Award, CheckCircle, Settings, AlertCircle } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
 
 const CTASection = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
 
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
@@ -21,54 +12,10 @@ const CTASection = () => {
     window.location.href = 'tel:843-437-8921';
   };
 
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ 
-        "form-name": "estimate-request",
-        ...formData 
-      })
-    })
-    .then(() => {
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
-      });
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
-    })
-    .catch(error => {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
-      setTimeout(() => {
-        setSubmitStatus(null);
-      }, 5000);
-    })
-    .finally(() => {
-      setIsSubmitting(false);
-    });
+  const handleBookingClick = () => {
+    if (window.HCPWidget) {
+      window.HCPWidget.openModal();
+    }
   };
 
   return (
@@ -156,102 +103,75 @@ const CTASection = () => {
 
             <div>
               <div className="bg-white p-8 rounded-2xl shadow-xl border border-gold/20">
-                <h3 className="text-2xl font-serif font-semibold text-navy mb-2">Get Your FREE Estimate</h3>
-                <p className="text-navy/70 font-sans text-sm mb-6">Tell us about your cleaning needs and we'll provide a detailed quote</p>
-                
-                {submitStatus === 'success' && (
-                  <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-lg font-sans">
-                    Thank you! We'll contact you within 24 hours with your FREE estimate.
-                  </div>
-                )}
-                
-                {submitStatus === 'error' && (
-                  <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-lg font-sans">
-                    Oops! Something went wrong. Please try again or call us at 843-437-8921.
-                  </div>
-                )}
+                <h3 className="text-2xl font-serif font-semibold text-navy mb-2">Book Your Appointment</h3>
+                <p className="text-navy/70 font-sans text-sm mb-6">Schedule your service and receive your personalized estimate</p>
 
-                <form 
-                  name="estimate-request"
-                  method="POST"
-                  data-netlify="true"
-                  data-netlify-honeypot="bot-field"
-                  onSubmit={handleSubmit}
-                  className="space-y-4"
+                {/* Important Notice */}
+                <div className="mb-6 p-4 bg-gold/10 border-l-4 border-gold rounded-r-lg">
+                  <div className="flex items-start space-x-3">
+                    <AlertCircle className="text-gold flex-shrink-0 mt-0.5" size={20} />
+                    <div>
+                      <p className="text-navy font-semibold font-sans text-sm mb-1">Important Notice</p>
+                      <p className="text-navy/70 font-sans text-sm">
+                        Pricing and appointment times are estimates and subject to physical evaluation and scheduling availability.
+                        Final pricing will be confirmed after we assess your specific cleaning needs.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* HouseCall Pro Booking Button */}
+                <button
+                  data-token="1159d6a5fcbd41b6bcb97c533b6d0924"
+                  data-orgname="The-Islands-Rug-Spa"
+                  className="w-full bg-gold text-navy py-4 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans mb-4 hcp-button"
+                  onClick={handleBookingClick}
                 >
-                  {/* Hidden fields for Netlify */}
-                  <input type="hidden" name="form-name" value="estimate-request" />
-                  <div hidden>
-                    <input name="bot-field" />
-                  </div>
+                  Book Your Appointment Online
+                </button>
 
-                  <div>
-                    <input 
-                      type="text" 
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Your Name"
-                      className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
-                    />
-                  </div>
-                  <div>
-                    <input 
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Email Address"
-                      className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
-                    />
-                  </div>
-                  <div>
-                    <input 
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleInputChange}
-                      required
-                      placeholder="Phone Number"
-                      className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
-                    />
-                  </div>
-                  <div>
-                    <select 
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      required
-                      className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
+                {/* Alternative Contact Methods */}
+                <div className="pt-6 border-t border-navy/10">
+                  <p className="text-navy/70 font-sans text-sm text-center mb-4">Prefer to speak with us directly?</p>
+                  <div className="grid grid-cols-2 gap-3">
+                    <button
+                      onClick={handleCallClick}
+                      className="flex items-center justify-center space-x-2 p-3 bg-navy/5 rounded-lg hover:bg-navy/10 transition-colors"
                     >
-                      <option value="">Select Service Needed</option>
-                      <option value="luxury-rug-cleaning">Luxury & Area Rug Cleaning</option>
-                      <option value="upholstery-cleaning">Upholstery Cleaning</option>
-                      <option value="carpet-cleaning">Carpet Cleaning & Care</option>
-                      <option value="floor-tile-cleaning">Floor and Tile Cleaning</option>
-                      <option value="multiple-services">Multiple Services</option>
-                    </select>
+                      <Phone className="text-gold" size={18} />
+                      <span className="text-navy font-sans text-sm font-semibold">Call Now</span>
+                    </button>
+                    <a
+                      href="mailto:info@theislandsrugspa.com"
+                      className="flex items-center justify-center space-x-2 p-3 bg-navy/5 rounded-lg hover:bg-navy/10 transition-colors"
+                    >
+                      <Mail className="text-gold" size={18} />
+                      <span className="text-navy font-sans text-sm font-semibold">Email Us</span>
+                    </a>
                   </div>
-                  <div>
-                    <textarea 
-                      name="message"
-                      value={formData.message}
-                      onChange={handleInputChange}
-                      placeholder="Describe your carpets, rugs, or upholstery that need attention..."
-                      rows="4"
-                      className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none resize-none font-sans"
-                    />
+                </div>
+
+                {/* Service Highlights */}
+                <div className="mt-6 pt-6 border-t border-navy/10">
+                  <div className="grid grid-cols-2 gap-3 text-xs text-navy/60 font-sans">
+                    <div className="flex items-center space-x-1">
+                      <CheckCircle className="text-gold" size={14} />
+                      <span>Free Estimates</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <CheckCircle className="text-gold" size={14} />
+                      <span>Same-Day Response</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <CheckCircle className="text-gold" size={14} />
+                      <span>Flexible Scheduling</span>
+                    </div>
+                    <div className="flex items-center space-x-1">
+                      <CheckCircle className="text-gold" size={14} />
+                      <span>Licensed & Insured</span>
+                    </div>
                   </div>
-                  <button 
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="w-full bg-gold text-navy py-4 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans disabled:opacity-50 disabled:cursor-not-allowed"
-                  >
-                    {isSubmitting ? 'Sending...' : 'Get My FREE Estimate'}
-                  </button>
-                </form>
+                </div>
               </div>
             </div>
           </div>

@@ -1,63 +1,15 @@
-import React, { useState } from 'react';
-import { X, Phone, Mail, Shield, Star } from 'lucide-react';
+import React from 'react';
+import { X, Phone, Mail, Shield, Star, AlertCircle, CheckCircle } from 'lucide-react';
 
 const EstimatePopup = ({ isOpen, onClose }) => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    service: '',
-    message: ''
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null);
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const handleBookingClick = () => {
+    if (window.HCPWidget) {
+      window.HCPWidget.openModal();
+    }
   };
 
-  const encode = (data) => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({ 
-        "form-name": "estimate-request",
-        ...formData 
-      })
-    })
-    .then(() => {
-      setSubmitStatus('success');
-      setFormData({
-        name: '',
-        email: '',
-        phone: '',
-        service: '',
-        message: ''
-      });
-      setTimeout(() => {
-        onClose();
-        setSubmitStatus(null);
-      }, 2000);
-    })
-    .catch(error => {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
-    })
-    .finally(() => {
-      setIsSubmitting(false);
-    });
+  const handleCallClick = () => {
+    window.location.href = 'tel:843-437-8921';
   };
 
   if (!isOpen) return null;
@@ -91,140 +43,79 @@ const EstimatePopup = ({ isOpen, onClose }) => {
           </div>
         </div>
 
-        {/* Form Content */}
+        {/* Booking Content */}
         <div className="p-6">
-          {submitStatus === 'success' && (
-            <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-lg">
-              Thank you! We'll contact you within 24 hours with your FREE estimate.
+          {/* Important Notice */}
+          <div className="mb-6 p-4 bg-gold/10 border-l-4 border-gold rounded-r-lg">
+            <div className="flex items-start space-x-3">
+              <AlertCircle className="text-gold flex-shrink-0 mt-0.5" size={20} />
+              <div>
+                <p className="text-navy font-semibold font-sans text-sm mb-1">Important Notice</p>
+                <p className="text-navy/70 font-sans text-sm">
+                  Pricing and appointment times are estimates and subject to physical evaluation and scheduling availability.
+                  Final pricing will be confirmed after we assess your specific cleaning needs.
+                </p>
+              </div>
             </div>
-          )}
-          
-          {submitStatus === 'error' && (
-            <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-lg">
-              Oops! Something went wrong. Please try again or call us directly at 843-437-8921.
-            </div>
-          )}
+          </div>
 
-          <form 
-            name="estimate-request"
-            method="POST"
-            data-netlify="true"
-            data-netlify-honeypot="bot-field"
-            onSubmit={handleSubmit} 
-            className="space-y-4"
+          {/* HouseCall Pro Booking Button */}
+          <button
+            data-token="1159d6a5fcbd41b6bcb97c533b6d0924"
+            data-orgname="The-Islands-Rug-Spa"
+            className="w-full bg-gold text-navy py-4 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans text-lg mb-6 hcp-button"
+            onClick={handleBookingClick}
           >
-            {/* Hidden fields for Netlify */}
-            <input type="hidden" name="form-name" value="estimate-request" />
-            <div hidden>
-              <input name="bot-field" />
-            </div>
+            Book Your Appointment Online
+          </button>
 
-            <div className="grid md:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-navy font-semibold mb-2 font-sans">Your Name *</label>
-                <input 
-                  type="text" 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="Enter your full name"
-                  className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
-                />
+          {/* Service Highlights */}
+          <div className="mb-6 p-5 bg-gradient-to-br from-seafoam/10 to-ivory rounded-lg">
+            <h4 className="text-navy font-serif font-semibold text-base mb-3">What to Expect:</h4>
+            <div className="grid grid-cols-2 gap-3 text-sm">
+              <div className="flex items-start space-x-2">
+                <CheckCircle className="text-gold flex-shrink-0 mt-0.5" size={16} />
+                <span className="text-navy/80 font-sans">Free estimate provided</span>
               </div>
-              <div>
-                <label className="block text-navy font-semibold mb-2 font-sans">Phone Number *</label>
-                <input 
-                  type="tel" 
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  required
-                  placeholder="(843) 555-0123"
-                  className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
-                />
+              <div className="flex items-start space-x-2">
+                <CheckCircle className="text-gold flex-shrink-0 mt-0.5" size={16} />
+                <span className="text-navy/80 font-sans">Same-day response</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <CheckCircle className="text-gold flex-shrink-0 mt-0.5" size={16} />
+                <span className="text-navy/80 font-sans">Flexible scheduling</span>
+              </div>
+              <div className="flex items-start space-x-2">
+                <CheckCircle className="text-gold flex-shrink-0 mt-0.5" size={16} />
+                <span className="text-navy/80 font-sans">Licensed & insured</span>
               </div>
             </div>
+          </div>
 
-            <div>
-              <label className="block text-navy font-semibold mb-2 font-sans">Email Address *</label>
-              <input 
-                type="email" 
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-                placeholder="your.email@example.com"
-                className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
-              />
-            </div>
-
-            <div>
-              <label className="block text-navy font-semibold mb-2 font-sans">Service Needed *</label>
-              <select 
-                name="service"
-                value={formData.service}
-                onChange={handleInputChange}
-                required
-                className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none font-sans"
-              >
-                <option value="">Select a service...</option>
-                <option value="luxury-rug-cleaning">Luxury & Area Rug Cleaning</option>
-                <option value="upholstery-cleaning">Upholstery Cleaning</option>
-                <option value="carpet-cleaning">Carpet Cleaning & Care</option>
-                <option value="multiple-services">Multiple Services</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-navy font-semibold mb-2 font-sans">Tell us about your needs</label>
-              <textarea 
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                rows="4"
-                placeholder="Describe your carpets, rugs, or upholstery that need attention. Include any specific concerns like stains, odors, or fabric types..."
-                className="w-full p-4 border border-navy/20 rounded-lg focus:ring-2 focus:ring-gold focus:border-transparent outline-none resize-none font-sans"
-              />
-            </div>
-
-            <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button 
-                type="submit"
-                disabled={isSubmitting}
-                className="flex-1 bg-gold text-navy py-4 px-6 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans text-lg disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? 'Sending...' : 'Get My FREE Estimate'}
-              </button>
-              <button 
-                type="button"
-                onClick={onClose}
-                disabled={isSubmitting}
-                className="flex-1 border-2 border-navy/20 text-navy py-4 px-6 rounded-lg font-semibold hover:bg-navy/5 transition-colors font-sans disabled:opacity-50"
-              >
-                Close
-              </button>
-            </div>
-          </form>
-
-          {/* Contact Info Section */}
-          <div className="mt-8 pt-6 border-t border-navy/10">
-            <h3 className="text-navy font-serif font-semibold text-lg mb-4">Prefer to call or email?</h3>
+          {/* Alternative Contact Methods */}
+          <div className="pt-6 border-t border-navy/10">
+            <h3 className="text-navy font-serif font-semibold text-lg mb-4 text-center">Prefer to Call or Email?</h3>
             <div className="grid sm:grid-cols-2 gap-4">
-              <div className="flex items-center space-x-3 p-4 bg-seafoam/10 rounded-lg">
+              <button
+                onClick={handleCallClick}
+                className="flex items-center space-x-3 p-4 bg-seafoam/10 rounded-lg hover:bg-seafoam/20 transition-colors"
+              >
                 <Phone className="text-gold" size={20} />
-                <div>
+                <div className="text-left">
                   <p className="text-navy font-semibold font-sans">Call us directly</p>
                   <p className="text-navy/70 font-sans">843-437-8921</p>
                 </div>
-              </div>
-              <div className="flex items-center space-x-3 p-4 bg-seafoam/10 rounded-lg">
+              </button>
+              <a
+                href="mailto:info@theislandsrugspa.com"
+                className="flex items-center space-x-3 p-4 bg-seafoam/10 rounded-lg hover:bg-seafoam/20 transition-colors"
+              >
                 <Mail className="text-gold" size={20} />
-                <div>
+                <div className="text-left">
                   <p className="text-navy font-semibold font-sans">Email us</p>
                   <p className="text-navy/70 font-sans">info@theislandsrugspa.com</p>
                 </div>
-              </div>
+              </a>
             </div>
           </div>
         </div>
