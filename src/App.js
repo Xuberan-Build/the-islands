@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
@@ -8,6 +8,17 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
+import { trackPageView } from './lib/metaPixel';
+
+const PageViewTracker = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    trackPageView();
+  }, [location.pathname, location.search, location.hash]);
+
+  return null;
+};
 
 function App() {
   return (
@@ -15,6 +26,7 @@ function App() {
       <div className="App">
         <Header />
         <main>
+          <PageViewTracker />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<Services />} />
