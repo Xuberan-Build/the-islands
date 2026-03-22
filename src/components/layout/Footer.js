@@ -17,11 +17,6 @@ const Footer = () => {
   const handleEmailClick = () => {
     window.location.href = 'mailto:info@theislandsrugspa.com';
   };
-  const serviceAreas = [
-    "Charleston", "Mount Pleasant", "Lowcountry", "Seabrook Island", "Kiawah Island", 
-    "Johns Island", "James Island"
-  ];
-
   const services = [
     "Fine Area Rug Cleaning", 
     "Carpet Cleaning and Care",

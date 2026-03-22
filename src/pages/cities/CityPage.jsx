@@ -40,7 +40,6 @@ const BeforeAfterTile = ({ item, cityName }) => {
   const hasNeither = !item.before && !item.after;
   const hasBoth = item.before && item.after;
   const hasBefore = item.before && !item.after;
-  const hasAfter = !item.before && item.after;
 
   if (hasNeither) {
     return (
