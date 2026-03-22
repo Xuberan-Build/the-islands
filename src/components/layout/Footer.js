@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Phone, Clock, Mail, MapPin, Shield, Star } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
+import { allCities } from '../../data/cityData';
 
 const Footer = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -181,20 +182,27 @@ const Footer = () => {
 
           {/* Service Areas */}
           <div>
-            <h4 className="font-serif font-semibold text-lg mb-4">Service Areas — Greater Charleston and Lowcountry</h4>
-            <ul className="space-y-1">
-              {serviceAreas.slice(2).map((area, index) => (
-                <li key={index} className="text-ivory/70 font-sans text-sm">{area}</li>
+            <h4 className="font-serif font-semibold text-lg mb-4">Service Areas</h4>
+            <ul className="space-y-1.5 mb-6">
+              {allCities.map((city) => (
+                <li key={city.slug}>
+                  <Link
+                    to={`/${city.slug}`}
+                    className="text-ivory/70 hover:text-gold transition-colors font-sans text-sm block"
+                  >
+                    {city.name}
+                  </Link>
+                </li>
               ))}
             </ul>
 
             {/* CTA Box */}
-            <div className="bg-gold/10 border border-gold/30 rounded-lg p-4 mt-6">
+            <div className="bg-gold/10 border border-gold/30 rounded-lg p-4">
               <h5 className="font-serif font-semibold text-gold mb-2">Ready to Get Started?</h5>
               <p className="text-ivory/80 font-sans text-sm mb-3">
                 Call today for your FREE estimate and experience <strong>THE ISLANDS Rug Spa</strong> difference.
               </p>
-              <button 
+              <button
                 onClick={openPopup}
                 className="inline-block bg-gold text-navy px-4 py-2 rounded font-semibold font-sans text-sm hover:bg-gold/90 transition-colors cursor-pointer"
               >
