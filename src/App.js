@@ -23,6 +23,7 @@ import {
   mountPleasant,
   northMountPleasant,
   danielIsland,
+  charlestonMetro,
 } from './data/cityData';
 
 const PageViewTracker = () => {
@@ -60,6 +61,7 @@ function App() {
             <Route path="/rug-cleaning-mount-pleasant"       element={<CityPage city={mountPleasant} />} />
             <Route path="/rug-cleaning-north-mount-pleasant" element={<CityPage city={northMountPleasant} />} />
             <Route path="/rug-cleaning-daniel-island"        element={<CityPage city={danielIsland} />} />
+            <Route path="/rug-cleaning-charleston"           element={<CityPage city={charlestonMetro} />} />
           </Routes>
         </main>
         <Footer />

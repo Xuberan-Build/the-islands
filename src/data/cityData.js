@@ -518,6 +518,54 @@ export const danielIsland = {
   ],
 };
 
+export const charlestonMetro = {
+  name: 'Charleston',
+  slug: 'rug-cleaning-charleston',
+  bookingUrl: null,
+  zips: ['29401','29403','29405','29407','29412','29414','29418','29439',
+         '29451','29455','29464','29466','29483','29485','29486','29487','29492'],
+  seo: {
+    title: 'Rug Cleaning Charleston SC | The Islands Rug Spa',
+    description: 'Professional rug, carpet & upholstery cleaning across greater Charleston, SC. Free pickup & delivery. Owner-operated, IICRC-certified. Free estimate.',
+  },
+  hero: {
+    headline: 'Rug Cleaning for Charleston Homes',
+    subheadline: 'We pick up, deep clean, and deliver back to your door. Free estimate, no obligation.',
+  },
+  problem: {
+    headline: "Most Charleston Homeowners Don't Realize How Much Their Rugs Are Holding",
+    body: "Years of dirt, allergens, and odors accumulate in the fibers of your most-used rugs — and vacuuming never touches them. The Lowcountry climate makes it worse: humidity embeds moisture deep in rug backing, salt air accelerates odor, and the fine dust that settles in every Charleston home works into carpet pile like sandpaper over time. You stop noticing because you're home every day. Guests notice the moment they walk in.",
+    closer: "One professional deep clean removes what years of regular maintenance can't — and your home smells the way it should.",
+  },
+  local: {
+    headline: 'Charleston-Based. Owner on Every Job.',
+    body: "The Islands Rug Spa is an owner-operated business based right here on Johns Island. We serve the entire greater Charleston metro — Summerville to Folly Beach, Kiawah to Daniel Island — and we treat every home like a neighbor's, because it is. No franchise. No rotating crew. The owner shows up, assesses your rugs personally, and does the work. We pick up, deep clean at our facility, and deliver back to your door.",
+  },
+  beforeAfter: [
+    { before: null, after: null, caption: 'Area rug restoration — Charleston home' },
+  ],
+  reviews: [
+    {
+      name: 'Patricia Lawson',
+      location: 'West Ashley',
+      stars: 5,
+      text: "I have two labs and a wool area rug I thought was done for. They got out stains I'd given up on and the rug smells completely fresh. Worth every penny.",
+    },
+    {
+      name: 'Allen Bradford',
+      location: 'Daniel Island',
+      stars: 5,
+      text: "Called on a Tuesday, they were at our house Thursday morning. The rugs and carpets throughout our home look absolutely perfect. Impeccable service.",
+    },
+    {
+      name: 'Becky Norris',
+      location: 'Mount Pleasant',
+      stars: 5,
+      text: "Four kids and two golden retrievers — my carpets were a disaster. They did an unbelievable job. The house smells completely fresh and the carpets look new. Booked them again already.",
+    },
+  ],
+};
+
 // ─── Master list for nav dropdown and footer ─────────────────────────────────
 export const allCities = [
   westAshley,
