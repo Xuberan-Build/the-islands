@@ -1,4 +1,8 @@
 import { trackEvent as trackMetaEvent } from './metaPixel';
+import { captureAttribution, getAttributionParams } from './attribution';
+
+// Runs once when the app loads, while the landing URL still has its tags.
+captureAttribution();
 
 export const PHONE_NUMBER = '843-437-8921';
 
@@ -9,7 +13,11 @@ const trackGAEvent = (name, params = {}) => {
     return;
   }
 
-  window.gtag('event', name, { page_path: window.location.pathname, ...params });
+  window.gtag('event', name, {
+    page_path: window.location.pathname,
+    ...getAttributionParams(),
+    ...params,
+  });
 };
 
 // Google Ads conversions. Off until these are set at build time (Netlify env vars):

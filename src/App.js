@@ -10,6 +10,7 @@ import Privacy from './pages/Privacy';
 import Terms from './pages/Terms';
 import CityPage from './pages/cities/CityPage';
 import { trackPageView } from './lib/metaPixel';
+import { markActive } from './lib/attribution';
 
 import {
   westAshley,
@@ -30,6 +31,7 @@ const PageViewTracker = () => {
   const location = useLocation();
   useEffect(() => {
     trackPageView();
+    markActive();
   }, [location.pathname, location.search, location.hash]);
   return null;
 };
