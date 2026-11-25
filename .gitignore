@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Local Netlify folder
+.netlify
+
+# Google Ads API — credentials and local Python env. Never commit these.
+/ads/google-ads.yaml
+/ads/client_secret*.json
+/ads/.venv
+__pycache__/

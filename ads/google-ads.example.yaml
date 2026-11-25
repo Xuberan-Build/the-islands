@@ -1,0 +1,9 @@
+# Copy to ads/google-ads.yaml (gitignored) and fill in.
+# The refresh token is written here for you by scripts/get_refresh_token.py.
+
+developer_token: INSERT_DEVELOPER_TOKEN        # from the MANAGER account: Tools > API Center
+client_id: INSERT_OAUTH_CLIENT_ID              # Google Cloud OAuth client (Desktop app)
+client_secret: INSERT_OAUTH_CLIENT_SECRET
+refresh_token: INSERT_REFRESH_TOKEN            # filled by get_refresh_token.py
+login_customer_id: "8914122258"            # manager account 891-412-2258 (holds the dev token)
+use_proto_plus: true
