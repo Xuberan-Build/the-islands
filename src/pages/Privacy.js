@@ -12,7 +12,7 @@ const Privacy = () => {
           <p className="text-xl text-white/80 max-w-2xl mx-auto font-sans">
             Your privacy and trust are important to us. Learn how we protect and handle your information.
           </p>
-          <p className="text-white/60 font-sans mt-4">Last Updated: August 1, 2025</p>
+          <p className="text-white/60 font-sans mt-4">Last Updated: November 25, 2026</p>
         </div>
       </section>
 
@@ -68,7 +68,7 @@ const Privacy = () => {
           <div className="mb-12">
             <h2 className="text-2xl font-serif font-bold text-navy mb-6">4. Sharing Your Information</h2>
             <p className="text-navy/80 font-sans leading-relaxed">
-              We do not sell, trade, or otherwise transfer your personal information to outside parties unless required for business operations or by law. Third-party service providers who assist us in operating our website or conducting our business may have access to your information but are bound by confidentiality agreements.
+              We do not sell your personal information. We share it only with service providers that help us run our business and website (such as our booking, analytics, and advertising partners described in Section 7), or when required by law. These providers may use your information only to provide their services to us and as described in their own privacy policies.
             </p>
           </div>
 
@@ -84,13 +84,48 @@ const Privacy = () => {
           <div className="mb-12">
             <h2 className="text-2xl font-serif font-bold text-navy mb-6">6. Cookies</h2>
             <p className="text-navy/80 font-sans leading-relaxed">
-              We may use cookies to enhance your experience on our website. You can disable cookies through your browser settings, although this may affect certain website functionalities.
+              We and our analytics and advertising partners use cookies, pixels, and similar technologies to keep the site working, understand how visitors use it, and measure the results of our advertising. You can block or delete cookies through your browser settings, although some parts of the site may not work as intended.
+            </p>
+          </div>
+
+          {/* Analytics, Advertising & Booking Tools */}
+          <div className="mb-12">
+            <h2 className="text-2xl font-serif font-bold text-navy mb-6">7. Analytics, Advertising &amp; Booking Tools</h2>
+            <p className="text-navy/80 font-sans leading-relaxed mb-4">
+              We use the following third-party tools. Each may collect information such as your IP address, device and browser details, pages you visit, and the actions you take on our site (for example, tapping our phone number or opening our booking form).
+            </p>
+            <ul className="list-disc pl-6 space-y-3 text-navy/80 font-sans leading-relaxed mb-4">
+              <li>
+                <strong>Google Analytics</strong> helps us understand how visitors use our site. Learn{' '}
+                <a href="https://policies.google.com/technologies/partner-sites" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">how Google uses data from sites that use its services</a>, or opt out with the{' '}
+                <a href="https://tools.google.com/dlpage/gaoptout" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">Google Analytics opt-out browser add-on</a>.
+              </li>
+              <li>
+                <strong>Google Ads</strong> lets us measure which ads lead to calls and bookings and may show our ads to people who have visited our site (remarketing). If you call a phone number shown in one of our ads or on our site, Google may record call details such as the time, duration, and caller area code. It does not record the conversation.
+              </li>
+              <li>
+                <strong>Meta (Facebook and Instagram) Pixel</strong> helps us measure our ads on Meta platforms and show relevant ads to people who have visited our site.
+              </li>
+              <li>
+                <strong>Housecall Pro</strong> powers our online booking and scheduling. Information you enter in the booking form is collected and processed by Housecall Pro under its{' '}
+                <a href="https://www.housecallpro.com/privacy/" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">privacy policy</a>.
+              </li>
+            </ul>
+            <p className="text-navy/80 font-sans leading-relaxed mb-4">
+              <strong>Customer information for ad measurement.</strong> To understand whether our advertising works, we may share contact details you have given us, such as your email address or phone number, with Google and Meta. This information is hashed (converted into an unreadable code) before it is sent. It is used to match conversions to ads and, where permitted, to build advertising audiences. It is not sold.
+            </p>
+            <p className="text-navy/80 font-sans leading-relaxed">
+              <strong>Your choices.</strong> You can control personalized ads through{' '}
+              <a href="https://myadcenter.google.com/" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">Google My Ad Center</a>,{' '}
+              <a href="https://www.facebook.com/adpreferences/" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">Meta Ad Preferences</a>, and industry opt-out pages from the{' '}
+              <a href="https://optout.aboutads.info/" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">Digital Advertising Alliance</a> and the{' '}
+              <a href="https://optout.networkadvertising.org/" className="text-gold hover:underline" target="_blank" rel="noopener noreferrer">Network Advertising Initiative</a>. You can also contact us to opt out of having your information used for advertising measurement.
             </p>
           </div>
 
           {/* Third-Party Links */}
           <div className="mb-12">
-            <h2 className="text-2xl font-serif font-bold text-navy mb-6">7. Third-Party Links</h2>
+            <h2 className="text-2xl font-serif font-bold text-navy mb-6">8. Third-Party Links</h2>
             <p className="text-navy/80 font-sans leading-relaxed">
               Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites, so we recommend reviewing their privacy policies.
             </p>
@@ -98,15 +133,15 @@ const Privacy = () => {
 
           {/* Your Rights */}
           <div className="mb-12">
-            <h2 className="text-2xl font-serif font-bold text-navy mb-6">8. Your Rights</h2>
+            <h2 className="text-2xl font-serif font-bold text-navy mb-6">9. Your Rights</h2>
             <p className="text-navy/80 font-sans leading-relaxed">
-              You may request access to, correction of, or deletion of your personal information at any time by contacting us. We will respond to your request by applicable laws.
+              You may request access to, correction of, or deletion of your personal information at any time by contacting us. You may also ask us not to use your contact details for advertising measurement or audiences. We will respond to your request in accordance with applicable laws.
             </p>
           </div>
 
           {/* Changes to This Privacy Policy */}
           <div className="mb-12">
-            <h2 className="text-2xl font-serif font-bold text-navy mb-6">9. Changes to This Privacy Policy</h2>
+            <h2 className="text-2xl font-serif font-bold text-navy mb-6">10. Changes to This Privacy Policy</h2>
             <p className="text-navy/80 font-sans leading-relaxed">
               We reserve the right to update this Privacy Policy at any time. We will post any changes on this page, and the "Last Updated" date will reflect the latest revisions.
             </p>
@@ -114,7 +149,7 @@ const Privacy = () => {
 
           {/* Contact Us */}
           <div className="bg-navy/5 border border-gold/20 rounded-xl p-8">
-            <h2 className="text-2xl font-serif font-bold text-navy mb-6 text-center">10. Contact Us</h2>
+            <h2 className="text-2xl font-serif font-bold text-navy mb-6 text-center">11. Contact Us</h2>
             <p className="text-navy/80 font-sans leading-relaxed mb-6 text-center">
               If you have questions about this Privacy Policy, please contact us at:
             </p>
