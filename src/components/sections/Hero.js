@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Anchor, Shield, Star } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
+import { callBusiness } from '../../lib/analytics';
 
 const Hero = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -8,9 +9,7 @@ const Hero = () => {
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
 
-  const handleCallClick = () => {
-    window.location.href = 'tel:843-437-8921';
-  };
+  const handleCallClick = () => callBusiness('hero');
 
   return (
     <>

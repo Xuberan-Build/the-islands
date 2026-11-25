@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Star, Shield, CheckCircle, Phone, ChevronLeft, ChevronRight, MapPin, AlertCircle } from 'lucide-react';
+import { Star, Shield, CheckCircle, Phone, ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
 import EstimatePopup from '../../components/ui/EstimatePopup';
+import { trackEvent } from '../../lib/metaPixel';
+import { trackCallClick } from '../../lib/analytics';
 
 // ─── Services (same across all city pages) ───────────────────────────────────
 const SERVICES = [
@@ -157,7 +159,10 @@ const CityPage = ({ city }) => {
     }
   }, [city]);
 
-  const openPopup = () => setIsPopupOpen(true);
+  const openPopup = () => {
+    trackEvent('InitiateCheckout', { content_name: city.name, content_category: 'Estimate Request' });
+    setIsPopupOpen(true);
+  };
 
   const handleBooking = () => {
     if (city.bookingUrl) {
@@ -200,6 +205,7 @@ const CityPage = ({ city }) => {
                   Get FREE Estimate Today
                 </button>
                 <a href="tel:843-437-8921"
+                  onClick={() => trackCallClick('city_hero')}
                   className="flex items-center justify-center space-x-2 border-2 border-navy text-navy px-7 py-3.5 rounded-lg font-semibold hover:bg-navy hover:text-ivory transition-colors text-base font-sans">
                   <Phone size={16} />
                   <span>843-437-8921</span>
@@ -390,21 +396,13 @@ const CityPage = ({ city }) => {
               Get a free, no-obligation estimate today. We'll assess your needs, give you transparent pricing, and schedule at your convenience. Don't wait — spots fill fast.
             </p>
 
-            <div className="mb-7 p-4 bg-gold/10 border-l-4 border-gold rounded-r-lg text-left">
-              <div className="flex items-start space-x-3">
-                <AlertCircle className="text-gold flex-shrink-0 mt-0.5" size={18} />
-                <p className="text-navy/70 font-sans text-sm">
-                  Pricing and appointment times are estimates subject to physical evaluation and scheduling availability. Final pricing confirmed after we assess your specific needs.
-                </p>
-              </div>
-            </div>
-
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button onClick={handleBooking}
                 className="bg-gold text-navy px-8 py-4 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans text-lg shadow-lg">
                 Book Online — It's Free
               </button>
               <a href="tel:843-437-8921"
+                onClick={() => trackCallClick('city_bottom')}
                 className="flex items-center justify-center space-x-2 border-2 border-navy text-navy px-8 py-4 rounded-lg font-semibold hover:bg-navy hover:text-ivory transition-colors font-sans text-lg">
                 <Phone size={18} />
                 <span>Call 843-437-8921</span>

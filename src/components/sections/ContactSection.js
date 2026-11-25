@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { MapPin, Clock, Phone, Mail, Shield, Star, Users, Award, CheckCircle, Settings, AlertCircle } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
+import { callBusiness, trackBookingOpen, trackEmailClick } from '../../lib/analytics';
 
 const CTASection = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -8,11 +9,10 @@ const CTASection = () => {
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
 
-  const handleCallClick = () => {
-    window.location.href = 'tel:843-437-8921';
-  };
+  const handleCallClick = () => callBusiness('contact_section');
 
   const handleBookingClick = () => {
+    trackBookingOpen('contact_section');
     if (window.HCPWidget) {
       window.HCPWidget.openModal();
     }
@@ -143,6 +143,7 @@ const CTASection = () => {
                     </button>
                     <a
                       href="mailto:info@theislandsrugspa.com"
+                      onClick={() => trackEmailClick('contact_section')}
                       className="flex items-center justify-center space-x-2 p-3 bg-navy/5 rounded-lg hover:bg-navy/10 transition-colors"
                     >
                       <Mail className="text-gold" size={18} />

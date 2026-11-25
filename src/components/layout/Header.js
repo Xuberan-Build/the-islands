@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Phone, Menu, X, ChevronDown, Clock } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
 import { allCities } from '../../data/cityData';
+import { callBusiness, trackCallClick } from '../../lib/analytics';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,9 +16,7 @@ const Header = () => {
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
 
-  const handleCallClick = () => {
-    window.location.href = 'tel:843-437-8921';
-  };
+  const handleCallClick = () => callBusiness('header');
 
   const scrollToSection = (sectionId) => {
     if (location.pathname !== '/') {
@@ -53,7 +52,7 @@ const Header = () => {
               <span className="font-sans" style={{ fontSize: '16px', lineHeight: '1.4' }}>
                 Call now for free estimate
               </span>
-              <a href="tel:843-437-8921" className="text-gold font-semibold">
+              <a href="tel:843-437-8921" onClick={() => trackCallClick('header_topbar')} className="text-gold font-semibold">
                 843-437-8921
               </a>
             </div>

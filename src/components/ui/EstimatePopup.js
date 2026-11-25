@@ -1,16 +1,16 @@
 import React from 'react';
-import { X, Phone, Mail, Shield, Star, AlertCircle, CheckCircle } from 'lucide-react';
+import { X, Phone, Mail, Shield, Star, CheckCircle } from 'lucide-react';
+import { callBusiness, trackBookingOpen, trackEmailClick } from '../../lib/analytics';
 
 const EstimatePopup = ({ isOpen, onClose }) => {
   const handleBookingClick = () => {
+    trackBookingOpen('estimate_popup');
     if (window.HCPWidget) {
       window.HCPWidget.openModal();
     }
   };
 
-  const handleCallClick = () => {
-    window.location.href = 'tel:843-437-8921';
-  };
+  const handleCallClick = () => callBusiness('estimate_popup');
 
   if (!isOpen) return null;
 
@@ -45,29 +45,19 @@ const EstimatePopup = ({ isOpen, onClose }) => {
 
         {/* Booking Content */}
         <div className="p-6">
-          {/* Important Notice */}
-          <div className="mb-6 p-4 bg-gold/10 border-l-4 border-gold rounded-r-lg">
-            <div className="flex items-start space-x-3">
-              <AlertCircle className="text-gold flex-shrink-0 mt-0.5" size={20} />
-              <div>
-                <p className="text-navy font-semibold font-sans text-sm mb-1">Important Notice</p>
-                <p className="text-navy/70 font-sans text-sm">
-                  Pricing and appointment times are estimates and subject to physical evaluation and scheduling availability.
-                  Final pricing will be confirmed after we assess your specific cleaning needs.
-                </p>
-              </div>
-            </div>
-          </div>
-
           {/* HouseCall Pro Booking Button */}
           <button
             data-token="1159d6a5fcbd41b6bcb97c533b6d0924"
             data-orgname="The-Islands-Rug-Spa"
-            className="w-full bg-gold text-navy py-4 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans text-lg mb-6 hcp-button"
+            className="w-full bg-gold text-navy py-4 rounded-lg font-semibold hover:bg-gold/90 transition-colors font-sans text-lg mb-2 hcp-button"
             onClick={handleBookingClick}
           >
             Book Your Appointment Online
           </button>
+
+          <p className="text-navy/40 font-sans text-xs text-center mb-6">
+            Pricing is an estimate and subject to on-site evaluation.
+          </p>
 
           {/* Service Highlights */}
           <div className="mb-6 p-5 bg-gradient-to-br from-seafoam/10 to-ivory rounded-lg">
@@ -108,6 +98,7 @@ const EstimatePopup = ({ isOpen, onClose }) => {
               </button>
               <a
                 href="mailto:info@theislandsrugspa.com"
+                onClick={() => trackEmailClick('estimate_popup')}
                 className="flex items-center space-x-3 p-4 bg-seafoam/10 rounded-lg hover:bg-seafoam/20 transition-colors"
               >
                 <Mail className="text-gold" size={20} />

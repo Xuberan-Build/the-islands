@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Phone, Clock, Mail, MapPin, Shield, Star } from 'lucide-react';
 import EstimatePopup from '../ui/EstimatePopup';
 import { allCities } from '../../data/cityData';
+import { callBusiness, trackEmailClick } from '../../lib/analytics';
 
 const Footer = () => {
   const [isPopupOpen, setIsPopupOpen] = useState(false);
@@ -10,11 +11,10 @@ const Footer = () => {
   const openPopup = () => setIsPopupOpen(true);
   const closePopup = () => setIsPopupOpen(false);
 
-  const handleCallClick = () => {
-    window.location.href = 'tel:843-437-8921';
-  };
+  const handleCallClick = () => callBusiness('footer');
 
   const handleEmailClick = () => {
+    trackEmailClick('footer');
     window.location.href = 'mailto:info@theislandsrugspa.com';
   };
   const services = [
